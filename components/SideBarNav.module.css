@@ -1,0 +1,16 @@
+.sidebarcontainer {
+  background-color: #3D4F5F;
+  width: 200px;
+  min-height: 100vh;
+}
+
+.sidebarcontainer a {
+  display: block;
+  text-decoration: none;
+  color: #BDC3C7;
+}
+
+.sidebarcontainer a:hover {
+  color: #719ABE;
+  text-decoration: none;
+}

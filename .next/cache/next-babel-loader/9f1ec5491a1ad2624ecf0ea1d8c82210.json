@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nimport Link from \"next/link\";\n\nconst SideBarNav = () => __jsx(\"div\", null, __jsx(Link, {\n  href: \"/\"\n}, __jsx(\"a\", null, \"Home\")), __jsx(Link, {\n  href: \"/search\"\n}, __jsx(\"a\", null, \"Search\")));\n\nexport default SideBarNav;","map":null,"metadata":{},"sourceType":"module"}
