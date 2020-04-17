@@ -9,6 +9,23 @@ body {
   padding: 10px;
 }
 
+.layoutContainer {
+  display: flex;
+  font-family: 'Karla', sans-serif;
+}
+
+.layoutDivider {
+    width: 100%;
+    border-bottom: 2px solid  #3D4F5F;
+}
+
+.mainLayoutContainer {
+  overflow-y: auto;
+  width: 200px;
+  min-height: 100vh;
+  flex: 1;
+}
+
 .courseListItem.shortDescription {
   font-size: 12px;
 }
@@ -16,6 +33,127 @@ body {
 .card:hover {
   border-width: 2px;
 }
+
+.hide-button {
+  cursor: pointer;
+}
+
+.filter-button {
+  cursor: pointer;
+}
+
+.searchbar {
+  border-color: #041321;
+  border-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.searchbar:focus {
+   outline: thin;
+}
+
+.list-group {
+  height: 200px;
+  overflow-y: auto;
+}
+
+.navIcon {
+  color: #BDC3C7;
+}
+
+.sidebarcontainer {
+  background-color: #3D4F5F;
+  width: 200px;
+  min-height: 100vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.sidebarcontainer a {
+  display: block;
+  text-decoration: none;
+  color: #BDC3C7;
+}
+
+.sidebarcontainer a:hover {
+  color: #719ABE;
+  text-decoration: none;
+}
+
+.smsidebarcontainer {
+  background-color: #3D4F5F;
+  width: 100px;
+  min-height: 100vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.smsidebarcontainer a {
+  display: block;
+  text-decoration: none;
+  color: #BDC3C7;
+}
+
+.smsidebarcontainer a:hover {
+  color: #719ABE;
+  text-decoration: none;
+}
+
+.navIconButton {
+  position: absolute;
+  top: 75px;
+  right: -10px;
+}
+
+.navIconButtonClosed {
+  position: absolute;
+  top: 75px;
+  right: -12px;
+}
+
+.navButtonContainer {
+   width: 25px;
+  height: 25px;
+  padding: auto;
+  background-color: #BDC3C7;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.brandLogoNav {
+  height: 120px;
+}
+
+.searchbutton {
+  background-color: #041321;
+  border-width: 2px;
+  border-color: #041321;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: white;
+  margin: 0;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: none;
+}
+
+.searchbutton:focus {
+  -webkit-box-shadow: 6px 4px 25px -12px rgba(0,0,0,0.75);
+-moz-box-shadow: 6px 4px 25px -12px rgba(0,0,0,0.75);
+box-shadow: 6px 4px 25px -12px rgba(0,0,0,0.75);
+}
+
+.searchbutton:focus,.searchbutton:active {
+  outline: none !important;
+  
+}
+
 
 /* Color Theme Swatches in Hex */
 .sitel-1-hex { color: #BDC3C7; }

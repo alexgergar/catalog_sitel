@@ -4,7 +4,7 @@ export default class FilterButton extends Component {
 
   render() {
     return (
-      <div className="row" onClick={this.props.onClick}>
+      <div className="row filter-button" onClick={this.props.onClick}>
         <div className="col-auto p-0 align-self-end offset-sm-1 offset-2">
           <img
             src="/filtericon.png"

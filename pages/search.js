@@ -2,23 +2,27 @@ import React, { Component } from 'react';
 import Layout from "../components/Layout";
 import SearchBar from '../components/SearchBar';
 import SearchResults from '../components/SearchResults';
-import Filter from "../components/Filter";
 import { filterCatagories } from "../data/filtercatagorydata";
 import FilterButton from '../components/FilterButton';
-import { X } from 'react-feather';
+import { Activity } from 'react-feather';
+import Filter from '../components/Filter';
+import Collapse from "react-bootstrap/Collapse";
+import Button from 'react-bootstrap/Button';
 
 export default class Search extends Component {
   state = {
-    searchResults: null,
-    filterCatagories: filterCatagories,
-    numOfCatagoriesToShow: 3,
-    filterButtonText: 'See All Filter Options',
-    filterSearchOptionsList: [],
-    showSearchResults: false,
-  }
+      searchResults: null,
+      filterCatagories: filterCatagories,
+      numOfCatagoriesToShow: 3,
+      filterButtonText: "See All Filter Options",
+      filterSearchOptionsList: [],
+      showSearchResults: false,
+      filterOpen: true,
+    };
+  
 
   submitSearchValue = text => {
-    this.setState({searchResults: text, showSearchResults: true});
+    this.setState({searchResults: text, showSearchResults: true, filterOpen: false});
   }
 
   onFilterButtonClick = event => {
@@ -26,16 +30,19 @@ export default class Search extends Component {
       numOfCatagoriesToShow,
       filterCatagories,
       filterButtonText,
+      filterOpen,
     } = this.state;
     event.preventDefault();
     numOfCatagoriesToShow == filterCatagories.length
       ? this.setState({
           numOfCatagoriesToShow: 3,
           filterButtonText: "See All Filter Options",
+          filterOpen: true,
         })
       : this.setState({
           numOfCatagoriesToShow: filterCatagories.length,
           filterButtonText: "See Less Filter Options",
+          filterOpen: true,
         });
   }
 
@@ -46,6 +53,10 @@ export default class Search extends Component {
     :
       this.state.filterSearchOptionsList[indexInSearchList] = data;
   }
+
+  toggleFilters = () => {
+    this.setState(prevState => ({filterOpen: !prevState.filterOpen}));
+    }
 
   render() {
     return (
@@ -64,19 +75,32 @@ export default class Search extends Component {
             />
           </div>
         </div>
-        <Filter
-          filterCatagories={filterCatagories}
-          numOfCatagoriesToShow={this.state.numOfCatagoriesToShow}
-          onCheckBoxClick={this.onCheckBoxClick}
-        />
-        
+        <Collapse in={this.state.filterOpen}>
+          <div id="toggle-filter">
+            <Filter
+              filterCatagories={filterCatagories}
+              numOfCatagoriesToShow={this.state.numOfCatagoriesToShow}
+              onCheckBoxClick={this.onCheckBoxClick}
+            />
+          </div>
+        </Collapse>
+        {this.state.filterOpen && (
+          <div
+            className="hide-button text-right pt-2"
+            onClick={this.toggleFilters}
+            aria-controls="toggle-filter"
+            aria-expanded={this.state.filterOpen}
+          >
+            - Hide Filters
+          </div>
+        )}
+
         {this.state.showSearchResults && (
           <>
-          <h4 className="pt-3 ml-2">Search Results</h4>
-          <SearchResults />
+            <h4 className="pt-3 ml-2">Search Results</h4>
+            <SearchResults />
           </>
         )}
-        
       </Layout>
     );
   }

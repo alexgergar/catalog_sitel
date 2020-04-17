@@ -9,6 +9,7 @@ export default class FilterItemContainer extends Component {
     }
   }
 
+  // this takes event, and sets the state of the check boxes - what option is checked - in this particular list catagory and send it to search page for query
   onCheckboxChange = event => {
     const item = event.target.name;
     const isChecked = event.target.checked;
@@ -25,8 +26,8 @@ export default class FilterItemContainer extends Component {
   render() {
     const checkboxes = this.props.catagoryData.options.map((item) => {
       return (
-          <li className="list-group-item" key={item.key}>
-            <label>
+          <li className="list-group-item py-1" key={item.key}>
+            <label className="m-0">
               <Checkbox
                 name={item.name}
                 checked={this.state.checkedItems.get(item.name)}

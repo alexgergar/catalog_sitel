@@ -1,38 +1,40 @@
 import React, { Component } from 'react';
-import styles from "./SearchBar.module.css";
-import { Search } from "react-feather";
 
 export default class SearchBar extends Component {
   state = {
     searchValue: '',
   }
 
+// for value change of the searchbar input
 handleChange = event => {
   this.setState({searchValue: event.target.value});
 }
 
+// to submit to search page - where state is held - so it can be used to query the db
 handleSearchSubmit = e => {
   e.preventDefault();
   this.props.submitSearchValue(this.state.searchValue);
-
 }
 
   render() {
     return (
-      <form
-        className={styles.container}
-        onSubmit={(e) => this.handleSearchSubmit(e)}
-      >
-        <input
-          type="text"
-          className={styles.innerForm}
-          value={this.state.searchValue}
-          onChange={this.handleChange}
-          placeholder="Search for Course"
-        />
-        <button type="submit" className={styles.searchbutton}>
-          <Search />
-        </button>
+      <form onSubmit={(e) => this.handleSearchSubmit(e)}>
+        <div className="input-group m-0">
+          <input
+            type="text"
+            className="form-control searchbar"
+            value={this.state.searchValue}
+            onChange={this.handleChange}
+            placeholder="Search for Course"
+            aria-label="Course Search"
+            aria-describedby="searchbar"
+          />
+          <div className="input-group-append">
+            <button type="submit" className="searchbutton">
+              Search
+            </button>
+          </div>
+        </div>
       </form>
     );
   };
